@@ -8,9 +8,7 @@ Given a Directed Acyclic Graph $G = (V, E)$ with positive integer edge weights $
 
 ### Recurrence Relation
 
-Let $\text{Reach}(v, t')$ be a boolean ($1$ or $0$) indicating if there exists a valid path from $s$ to vertex $v$ with total cost $t'$:
-
-$$\text{Reach}(v, t') = \bigvee_{(u, v) \in E \text{ s.t. } t' \ge w(u, v)} \text{Reach}(u, t' - w(u, v))$$
+Recurse across all parent vertices for a vertex i. If the reach(i, remaining_weight) = 1, return 1. Else, return 0
 
 **Base Cases:**
 * $\text{Reach}(s, 0) = 1$
@@ -27,16 +25,6 @@ Described in question 1 in my Fall 2026 CS260P Lab discussion
 
 * **Vertices**: $V = \{s, a, b, t\}$
 * **Target $T$**: $7$
-
-```
-       (2)         (6)
-    /------> [a] ------> [t]
-   /          |           ^
-[s]           |(2)     (3)|
-   \          v           |
-    \------> [b] ---------/
-       (3)
-```
 
 ### Test Case 2
 
